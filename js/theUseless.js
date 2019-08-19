@@ -13,7 +13,11 @@ const play = () => {
         "volume": -20
     })
     const polySynth = new Tone.PolySynth(4, Tone.Synth).toMaster();
-    polySynth.triggerAttackRelease(['C2', 'E2', 'G2', 'B2'], '16n')
+    const repeatSynth = () => {
+        polySynth.triggerAttackRelease(['C2', 'E2', 'G2', 'B2'], '16n')
+    }
+    Tone.Transport.scheduleRepeat(repeatSynth, "4n");
+    Tone.Transport.start();
 
     //pass in an array of events
     // var part = new Tone.Part(function (time, event) {
