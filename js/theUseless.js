@@ -1,4 +1,6 @@
 const play = () => {
+    
+    /* Synths */
     const synth = new Tone.Synth({
         "oscillator": {
             "type": "pwm",
@@ -11,13 +13,29 @@ const play = () => {
             "release": 0.9,
         },
         "volume": -20
-    })
+    });
+    synth.toMaster().triggerAttackRelease("C2", 10)
     const polySynth = new Tone.PolySynth(4, Tone.Synth).toMaster();
+    
     const repeatSynth = () => {
+        console.log('repeatSynth')
         polySynth.triggerAttackRelease(['C2', 'E2', 'G2', 'B2'], '16n')
     }
-    Tone.Transport.scheduleRepeat(repeatSynth, "4n");
-    Tone.Transport.start();
+
+    /* Experimentations Below */
+
+    // Tone.Transport.scheduleRepeat(repeatSynth, "4n");
+
+    //create a loop
+    // const loop = new Tone.Loop( function (time) {
+    //     console.log('Loop', time)
+    //     synth.triggerAttackRelease("C1", "8n", time)
+    // }, "4n")
+
+    //play the loop between 0-2m on the transport
+    // loop.start(0).stop("2m")
+    // Tone.Transport.schedule(repeatSynth, 3)
+    // Tone.Transport.start();
 
     //pass in an array of events
     // var part = new Tone.Part(function (time, event) {
