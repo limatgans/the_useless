@@ -1,21 +1,9 @@
+import { synth , polySynth } from "./mixer.js"
+import Tone from "tone"
+
 const play = () => {
     
-    /* Synths */
-    const synth = new Tone.Synth({
-        "oscillator": {
-            "type": "pwm",
-            "modulationFrequency": 0.2
-        },
-        "envelope": {
-            "attack": 0.2,
-            "decay": 0.4,
-            "sustain": 0.5,
-            "release": 0.9,
-        },
-        "volume": -20
-    });
-    synth.toMaster().triggerAttackRelease("C2", 10)
-    const polySynth = new Tone.PolySynth(4, Tone.Synth).toMaster();
+    synth.triggerAttackRelease("C2", 10)
     
     const repeatSynth = () => {
         console.log('repeatSynth')
@@ -55,6 +43,8 @@ const play = () => {
     // //loop the part 3 times
     // part.loop = 3
     // part.loopEnd = '1m'
-    // Tone.Transport.start();
+    Tone.Transport.start();
     // Tone.Transport.toggle();
 }
+
+export default play
