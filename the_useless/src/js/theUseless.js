@@ -1,27 +1,27 @@
-import { synth , polySynth } from "./mixer.js"
 import Tone from "tone"
 
+// Importing Modules
+import { synth } from "./mixer.js"
+import { polySynthLoop } from "./loops.js"
+
+
 const play = () => {
+
+    synth.triggerAttackRelease("C2", 400);
+    polySynthLoop.start(10).stop(200);
     
-    synth.triggerAttackRelease("C2", 10)
-    
-    const repeatSynth = () => {
-        console.log('repeatSynth')
-        polySynth.triggerAttackRelease(['C2', 'E2', 'G2', 'B2'], '16n')
-    }
+    // Starting Transport
+    Tone.Transport.start();
 
     /* Experimentations Below */
+    
+    // const repeatSynth = () => {
+    //     console.log('repeatSynth');
+    //     polySynth.triggerAttackRelease(['C2', 'E2', 'G2', 'B2'], '16n');
+    // }
 
     // Tone.Transport.scheduleRepeat(repeatSynth, "4n");
 
-    //create a loop
-    // const loop = new Tone.Loop( function (time) {
-    //     console.log('Loop', time)
-    //     synth.triggerAttackRelease("C1", "8n", time)
-    // }, "4n")
-
-    //play the loop between 0-2m on the transport
-    // loop.start(0).stop("2m")
     // Tone.Transport.schedule(repeatSynth, 3)
     // Tone.Transport.start();
 
@@ -43,8 +43,8 @@ const play = () => {
     // //loop the part 3 times
     // part.loop = 3
     // part.loopEnd = '1m'
-    Tone.Transport.start();
     // Tone.Transport.toggle();
+
 }
 
 export default play
