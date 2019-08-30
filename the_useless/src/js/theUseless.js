@@ -2,18 +2,22 @@ import Tone from "tone"
 
 // Importing Modules
 import { synth } from "./mixer.js"
-import { polySynthLoop } from "./loops.js"
+import { polySynthLoop, memNoiseSynthLoop } from "./loops.js"
 
 
 const play = () => {
 
     synth.triggerAttackRelease("C2", 400);
     polySynthLoop.start(10).stop(200);
-    
+    memNoiseSynthLoop.start(5).stop(200);
+
     // Starting Transport
     Tone.Transport.start();
 
     /* Experimentations Below */
+
+    // Use it for may be as a part of drum kit
+    // noiseSynth.triggerAttackRelease('16n');
     
     // const repeatSynth = () => {
     //     console.log('repeatSynth');
