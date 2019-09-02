@@ -1,19 +1,54 @@
 import Tone from "tone"
-import {synth , polySynth, noiseSynth, membraneSynth} from "./synth";
+import {
+	synth,
+	plainSynth, 
+	polySynth, 
+	noiseSynth, 
+	membraneSynth
+} from "./synth";
 
 /* Mixing Synth */
 const autoWah = new Tone.AutoWah();
-const distortion = new Tone.Distortion({
-    distortion : 0.5
-})
+const distortion = ({ distortion }) => new Tone.Distortion({
+	distortion
+});
+
 const feedback =  new Tone.FeedbackDelay({
-    delayTime : 0.5 ,
-    maxDelay : 2 
+	delayTime : 0.5 ,
+	maxDelay : 2 
 });
 const pingPongDelay = new Tone.PingPongDelay();
-synth.chain(autoWah, distortion, Tone.Master);
-polySynth.toMaster();
-noiseSynth.chain(autoWah, distortion, feedback, pingPongDelay, Tone.Master);
-membraneSynth.chain(autoWah, distortion, feedback, pingPongDelay, Tone.Master);
 
-export {synth, polySynth, noiseSynth, membraneSynth };
+synth.chain(
+	autoWah,
+	distortion({ distortion : 0.5 }), 
+	Tone.Master
+);
+plainSynth.chain(
+	distortion({ distortion : 0.3 }), 
+	pingPongDelay, 
+	Tone.Master
+);
+polySynth.toMaster();
+noiseSynth.chain(
+	autoWah,
+	distortion({ distortion : 0.5 }),
+	feedback, 
+	pingPongDelay, 
+	Tone.Master
+);
+membraneSynth.chain(
+	autoWah, 
+	distortion({ distortion : 0.5 }),
+	feedback, 
+	pingPongDelay, 
+	Tone.Master
+);
+
+export {
+	synth,
+	plainSynth, 
+	polySynth, 
+	noiseSynth, 
+	membraneSynth
+};

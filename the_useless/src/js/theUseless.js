@@ -3,51 +3,53 @@ import Tone from "tone"
 // Importing Modules
 import { synth } from "./mixer.js"
 import { polySynthLoop, memNoiseSynthLoop } from "./loops.js"
+import { c4MajorAltDownPattern } from "./patterns"
 
 
 const play = () => {
 
-    synth.triggerAttackRelease("C2", 400);
-    polySynthLoop.start(10).stop(200);
-    memNoiseSynthLoop.start(5).stop(200);
+	synth.triggerAttackRelease("C2", 400);
+	polySynthLoop.start(10).stop(200);
+	memNoiseSynthLoop.start(5).stop(200);
+	c4MajorAltDownPattern.start(15).stop(200)   
 
-    // Starting Transport
-    Tone.Transport.start();
+	// Starting Transport
+	Tone.Transport.start();
 
-    /* Experimentations Below */
+	/* Experimentations Below */
 
-    // Use it for may be as a part of drum kit
-    // noiseSynth.triggerAttackRelease('16n');
-    
-    // const repeatSynth = () => {
-    //     console.log('repeatSynth');
-    //     polySynth.triggerAttackRelease(['C2', 'E2', 'G2', 'B2'], '16n');
-    // }
+	// Use it for may be as a part of drum kit
+	// noiseSynth.triggerAttackRelease('16n');
+	
+	// const repeatSynth = () => {
+	//     console.log('repeatSynth');
+	//     polySynth.triggerAttackRelease(['C2', 'E2', 'G2', 'B2'], '16n');
+	// }
 
-    // Tone.Transport.scheduleRepeat(repeatSynth, "4n");
+	// Tone.Transport.scheduleRepeat(repeatSynth, "4n");
 
-    // Tone.Transport.schedule(repeatSynth, 3)
-    // Tone.Transport.start();
+	// Tone.Transport.schedule(repeatSynth, 3)
+	// Tone.Transport.start();
 
-    //pass in an array of events
-    // var part = new Tone.Part(function (time, event) {
-    //     //the events will be given to the callback with the time they occur
-    //     console.log({event})
-    //     polySynth.triggerAttackRelease(event.note, event.dur, time)
-    // }, [
-    //     { time: 0, note: ['C2', 'E2', 'G2', 'B2'], dur: '4n' },
-    //     { time: '1s', note: ['G2', 'B2', 'C2', 'E2'], dur: '16n' },
-    //     { time: '2n', note: ['E2', 'G2', 'B2', 'C2'], dur: '8n' },
-    //     { time: '1n', note: [ 'B2', 'C2', 'E2', 'G2'], dur: '4n' }
-    // ])
+	//pass in an array of events
+	// var part = new Tone.Part(function (time, event) {
+	//     //the events will be given to the callback with the time they occur
+	//     console.log({event})
+	//     polySynth.triggerAttackRelease(event.note, event.dur, time)
+	// }, [
+	//     { time: 0, note: ['C2', 'E2', 'G2', 'B2'], dur: '4n' },
+	//     { time: '1s', note: ['G2', 'B2', 'C2', 'E2'], dur: '16n' },
+	//     { time: '2n', note: ['E2', 'G2', 'B2', 'C2'], dur: '8n' },
+	//     { time: '1n', note: [ 'B2', 'C2', 'E2', 'G2'], dur: '4n' }
+	// ])
 
-    // //start the part at the beginning of the Transport's timeline
-    // part.start(0)
+	// //start the part at the beginning of the Transport's timeline
+	// part.start(0)
 
-    // //loop the part 3 times
-    // part.loop = 3
-    // part.loopEnd = '1m'
-    // Tone.Transport.toggle();
+	// //loop the part 3 times
+	// part.loop = 3
+	// part.loopEnd = '1m'
+	// Tone.Transport.toggle();
 
 }
 
