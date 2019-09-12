@@ -10,6 +10,44 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: Roboto, source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 32px;
+  height: 5vh;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100vw;
+  width: calc(var(--vw, 1vw) * 100);
+  background: #222;
+}
+
+.footer-text {
+  color: #AAA;
+  margin: 0 0.5em;
+}
+
+.footer-github {
+  float: right;
+  color: #AAA;
+  fill: currentColor;
+  margin: 0 1.5em 0 0.4em;
+}
+
+.footer-left {
+  margin-right: auto;
+  margin-left: 1.5em;
 }
