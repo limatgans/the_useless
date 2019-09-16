@@ -3,8 +3,10 @@ import {
 	synth,
 	plainSynth, 
 	polySynth, 
+	polySynthForChords,
 	noiseSynth, 
-	membraneSynth
+	membraneSynth,
+	membraneSynth2
 } from "./synth";
 
 /* Mixing Synth */
@@ -29,7 +31,14 @@ plainSynth.chain(
 	pingPongDelay, 
 	Tone.Master
 );
-polySynth.toMaster();
+polySynth.chain(
+	Tone.Master
+);
+polySynthForChords.chain(
+	distortion({  distortion : 0.3  }),
+	feedback,
+	Tone.Master
+);
 noiseSynth.chain(
 	autoWah,
 	distortion({ distortion : 0.5 }),
@@ -44,11 +53,18 @@ membraneSynth.chain(
 	pingPongDelay, 
 	Tone.Master
 );
+membraneSynth2.chain(
+	distortion({ distortion : 0.6 }),
+	feedback, 
+	Tone.Master
+);
 
 export {
 	synth,
 	plainSynth, 
 	polySynth, 
+	polySynthForChords,
 	noiseSynth, 
-	membraneSynth
+	membraneSynth,
+	membraneSynth2
 };
