@@ -4,6 +4,7 @@ import {
 	plainSynth, 
 	polySynth, 
 	polySynthForChords,
+	polySynthForChords1,
 	noiseSynth, 
 	membraneSynth,
 	membraneSynth2
@@ -39,6 +40,9 @@ polySynthForChords.chain(
 	feedback,
 	Tone.Master
 );
+polySynthForChords1.chain(
+	Tone.Master
+);
 noiseSynth.chain(
 	autoWah,
 	distortion({ distortion : 0.5 }),
@@ -64,6 +68,7 @@ export {
 	plainSynth, 
 	polySynth, 
 	polySynthForChords,
+	polySynthForChords1,
 	noiseSynth, 
 	membraneSynth,
 	membraneSynth2

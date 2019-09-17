@@ -1,5 +1,5 @@
 import Tone from "tone";
-import { plainSynth, membraneSynth, membraneSynth2, polySynthForChords } from "./mixer";
+import { plainSynth, membraneSynth, membraneSynth2, polySynthForChords, polySynthForChords1 } from "./mixer";
 import { c4MajorScale, backMelody1, backChords1 } from  "../utils/scales";
 
 const c4MajorAltDownPattern = new Tone.Pattern((time, note) => {
@@ -17,4 +17,9 @@ const polySynthPattern = new Tone.Pattern((time, note)=> {
 	polySynthForChords.triggerAttackRelease(note, "1n", time);
 }, backChords1, "up" )
 
-export { c4MajorAltDownPattern, backMelody1Pattern, polySynthPattern }
+const polySynthPattern2 = new Tone.Pattern((time, note)=> {
+	console.log("polySynthPattern", time)
+	polySynthForChords1.triggerAttackRelease(note, "1n", time);
+}, backChords1, "up" )
+
+export { c4MajorAltDownPattern, backMelody1Pattern, polySynthPattern, polySynthPattern2 }

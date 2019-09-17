@@ -17,11 +17,24 @@ const synth = new Tone.Synth({
 	"volume": -20
 });
 
-const plainSynth = new Tone.Synth()
-const polySynth = new Tone.PolySynth(4, Tone.Synth);
-const polySynthForChords = new Tone.PolySynth(3, Tone.Synth,  {
-	volume : 20,
-	detune : 1200,
+const plainSynth = new Tone.Synth();
+const createPolySynth = ({polypony = 4, voice = Tone.Synth, args}) => new Tone.PolySynth(polypony, voice, args)
+const polySynth =  createPolySynth({});
+const polySynthForChords = createPolySynth({
+	polypony: 3,
+	voice: Tone.Synth,
+	args: {
+		volume : 15,
+		detune : 1200,
+	}
+});
+const polySynthForChords1 = createPolySynth({
+	polypony: 3,
+	voice: Tone.Synth,
+	args: {
+		volume : 17.5,
+		detune : 1200,
+	}
 });
 
 // Instruments - Tone. Instruments
@@ -73,6 +86,7 @@ export {
 	plainSynth, 
 	polySynth,
 	polySynthForChords, 
+	polySynthForChords1,
 	noiseSynth, 
 	membraneSynth,
 	membraneSynth2 
