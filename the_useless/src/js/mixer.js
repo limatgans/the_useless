@@ -7,7 +7,8 @@ import {
 	polySynthForChords1,
 	noiseSynth, 
 	membraneSynth,
-	membraneSynth2
+	membraneSynth2,
+	AMSynth
 } from "./synth";
 
 /* Mixing Synth */
@@ -62,6 +63,9 @@ membraneSynth2.chain(
 	feedback, 
 	Tone.Master
 );
+AMSynth.chain(
+	Tone.Master
+);
 
 export {
 	synth,
@@ -71,5 +75,6 @@ export {
 	polySynthForChords1,
 	noiseSynth, 
 	membraneSynth,
-	membraneSynth2
+	membraneSynth2,
+	AMSynth
 };

@@ -21,10 +21,27 @@ const backChords1 = [
 	["F#2", "A2", "C#3"]
 ];
 
+const notes1 = [
+	"A3","B3","C4","D4",  
+	"E4","D4","C4","B3",  
+	"A3","B3","C4","D4",  
+	"E4","D4","C4","B3"
+]
+
+const chords1 = [
+	["A3","B3","C4"],  
+	["E4","D4","C4"],  
+	["A3","B3","C4"],  
+	["E4","D4","C4"],
+	["C3", "Eb3", "G3"],
+	["E4","D4","C4"]
+]
 
 export {
 	c2MajorScale,
 	c4MajorScale,
 	backMelody1,
-	backChords1
+	backChords1,
+	notes1, 
+	chords1
 }

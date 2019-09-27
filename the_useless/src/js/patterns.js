@@ -1,6 +1,6 @@
 import Tone from "tone";
-import { plainSynth, membraneSynth, membraneSynth2, polySynthForChords, polySynthForChords1 } from "./mixer";
-import { c4MajorScale, backMelody1, backChords1 } from  "../utils/scales";
+import { plainSynth, membraneSynth2, polySynthForChords, polySynthForChords1, AMSynth } from "./mixer";
+import { c4MajorScale, backMelody1, backChords1, chords1, notes1 } from  "../utils/scales";
 
 const c4MajorAltDownPattern = new Tone.Pattern((time, note) => {
 	console.log("c4MajorAltDownPattern", time)
@@ -18,8 +18,20 @@ const polySynthPattern = new Tone.Pattern((time, note)=> {
 }, backChords1, "up" )
 
 const polySynthPattern2 = new Tone.Pattern((time, note)=> {
-	console.log("polySynthPattern", time)
+	console.log("polySynthPattern2", time)
 	polySynthForChords1.triggerAttackRelease(note, "1n", time);
 }, backChords1, "up" )
 
-export { c4MajorAltDownPattern, backMelody1Pattern, polySynthPattern, polySynthPattern2 }
+// const metalSynthPattern = new Tone.Pattern((time, note)=> {
+// 	console.log("metalSynthPattern", time)
+// 	metalSynth.triggerAttackRelease(note, "1n", time);
+// }, chords1, "up" )
+
+const AMSynthPattern = new Tone.Pattern((time, note)=> {
+	console.log("AMSynthPattern", time)
+	AMSynth.triggerAttackRelease(note, "1n", time);
+}, notes1.concat(...backChords1), "up" )
+
+export { c4MajorAltDownPattern, backMelody1Pattern, polySynthPattern, polySynthPattern2,
+	AMSynthPattern
+}

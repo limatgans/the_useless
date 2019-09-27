@@ -3,7 +3,7 @@ import Tone from "tone"
 // Importing Modules
 import { synth } from "./mixer.js"
 import { polySynthLoop, memNoiseSynthLoop } from "./loops.js"
-import { c4MajorAltDownPattern, backMelody1Pattern, polySynthPattern, polySynthPattern2 } from "./patterns"
+import { c4MajorAltDownPattern, backMelody1Pattern, polySynthPattern, polySynthPattern2, AMSynthPattern } from "./patterns"
 
 
 const play = () => {
@@ -13,9 +13,9 @@ const play = () => {
 	memNoiseSynthLoop.start(5).stop(200);
 	c4MajorAltDownPattern.start(15).stop(200);
 	polySynthPattern.start(25).stop(200);
-	backMelody1Pattern.start(30).stop(200);
-	polySynthPattern2.start(40).stop(200);
-
+	backMelody1Pattern.start(40).stop(200);
+	polySynthPattern2.start(55).stop(200);
+	AMSynthPattern.start(140).stop(220);
 	// Starting Transport
 	Tone.Transport.start();
 

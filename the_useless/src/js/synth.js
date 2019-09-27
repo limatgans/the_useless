@@ -2,6 +2,7 @@
 import Tone from "tone"
 
 const createMemberaneSynth = (properties = {}) => new Tone.MembraneSynth(properties);
+const createAMSynth = (properties = {}) => new Tone.AMSynth(properties);
 
 const synth = new Tone.Synth({
 	"oscillator": {
@@ -36,6 +37,20 @@ const polySynthForChords1 = createPolySynth({
 		detune : 1200,
 	}
 });
+/* const metalSynth = createMetalSynth({
+	frequency: 100,
+	envelope: {
+		attack: 0.01,
+		decay: 1.4,
+		release: 0.02
+	},
+	harmonicity: 7.1,
+	modulationIndex: 32,
+	resonance: 4000,
+	octaves: 1.5
+}) */
+
+const AMSynth = createAMSynth();
 
 // Instruments - Tone. Instruments
 const noiseSynth = new Tone.NoiseSynth({
@@ -89,5 +104,6 @@ export {
 	polySynthForChords1,
 	noiseSynth, 
 	membraneSynth,
-	membraneSynth2 
+	membraneSynth2,
+	AMSynth 
 }
